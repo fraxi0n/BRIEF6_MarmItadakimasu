@@ -55,7 +55,7 @@ export const logMiddleware = (
 Son enregistrement dans l'application se fait dans le fichier racine `index.ts` :
 
 ```ts
-import { logMiddleware } from "./middlewares.js";
+import { logMiddleware } from "./middlewares";
 import Express from "express";
 
 const app = Express();
