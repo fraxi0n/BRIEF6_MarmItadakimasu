@@ -1,4 +1,5 @@
 import { logMiddleware } from './middlewares';
+import { fileURLToPath } from 'node:url';
 import Express from 'express';
 import router from './routes';
 import path from "node:path";
@@ -11,6 +12,8 @@ const app = Express();
 // Définition du port sur lequel le serveur va écouter
 // les requêtes HTTP. Ici, nous utilisons le port 3000.
 const PORT = 3000;
+
+const __filename = fileURLToPath(import.meta.url);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(path.dirname(__filename), "views"));
