@@ -1,4 +1,4 @@
-# 03 - Express _(views)_
+# 02 - Express _(views)_
 
 - **Dates du cours :** 25 juillet 2025 et 28 juillet 2025
 - **Objectifs :** Approfondissement de l'utilisation du framework Express, en instaurant un moteur de templating pour générer des vues HTML.
