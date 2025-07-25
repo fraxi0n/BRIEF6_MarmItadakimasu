@@ -1,6 +1,7 @@
 import { logMiddleware } from './middlewares';
 import Express from 'express';
 import router from './routes';
+import path from "node:path";
 
 // Création d'une instance de l'application Express
 // qui va gérer les requêtes HTTP entrantes
@@ -10,6 +11,9 @@ const app = Express();
 // Définition du port sur lequel le serveur va écouter
 // les requêtes HTTP. Ici, nous utilisons le port 3000.
 const PORT = 3000;
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 // Express.json() permet de convertir le
 // corps de la requête au format JSON

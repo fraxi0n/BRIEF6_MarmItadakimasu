@@ -7,6 +7,6 @@ export class HomeController extends Controller {
   // en charge de l'envoi de la réponse contenant
   // l'affichage HTML de la page d'accueil
   public home() {
-    this.response.send("<h1>Page accueil !</h1>");
+    this.response.render("pages/home");
   }
 }
