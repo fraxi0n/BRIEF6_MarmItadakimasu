@@ -1,0 +1,13 @@
+<%- include("../partials/head", { title: "Page des livres" }) %>
+
+<main>
+  <h1>Bienvenue sur la page des livres !</h1>
+
+  <ul>
+    <% books.forEach((book) => { %>
+      <li><%= book.title %></li>
+    <% }) %>
+  </ul>
+</main>
+
+<%- include("../partials/footer") %>

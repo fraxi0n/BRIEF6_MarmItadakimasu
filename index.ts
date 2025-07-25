@@ -14,13 +14,16 @@ const app = Express();
 const PORT = 3000;
 
 const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.set("view engine", "ejs");
-app.set("views", path.join(path.dirname(__filename), "views"));
+app.set("views", path.join(__dirname, "views"));
 
 // Express.json() permet de convertir le
 // corps de la requête au format JSON
 app.use(Express.json());
+
+app.use(Express.static(path.join(__dirname, "public")))
 
 // Définition d'un middleware maison, qui vient
 // afficher un message dans la console à chaque

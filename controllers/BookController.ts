@@ -16,7 +16,7 @@ export class BookController extends Controller {
   // en charge de l'envoi de la réponse contenant
   // un JSON représentant les livres de l'application
   public books() {
-    this.response.json(books);
+    this.response.render("pages/books", { books });
   }
 
   // Méthode de la classe "BookController",
