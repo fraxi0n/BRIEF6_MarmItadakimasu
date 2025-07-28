@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { HomeController } from "../Controllers/HomeController";
+import { CategoryController } from "../Controllers/CategoryController";
+import { RecipeController } from "../Controllers/RecipeController";
 
 // Définition d'un routeur pour les routes principales de l'application
 // Il inclut la route pour la page d'accueil et les routes liées aux livres
@@ -11,6 +13,18 @@ const router = Router();
 router.get("/", (request, response) => {
    const homeController = new HomeController(request, response);
    homeController.home();
+});
+router.get("/home", (request, response) => {
+   const homeController = new HomeController(request, response);
+   homeController.home();
+});
+router.get("/category", (request, response) => {
+   const catgoryController = new CategoryController(request, response);
+   catgoryController.category();
+});
+router.get("/recipe", (request, response) => {
+   const recipeController = new RecipeController(request, response);
+   recipeController.recipe();
 });
 
 // Inclusion des routes liées aux livres
