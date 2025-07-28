@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { HomeController } from "../Controllers/HomeController";
 
 // Définition d'un routeur pour les routes principales de l'application
 // Il inclut la route pour la page d'accueil et les routes liées aux livres
@@ -8,8 +9,8 @@ const router = Router();
 // Utilise la méthode `home` du `HomeController`
 // pour envoyer une réponse contenant l'affichage HTML de la page d'accueil
 router.get("/", (request, response) => {
-  // const homeController = new HomeController(request, response);
-  // homeController.home();
+   const homeController = new HomeController(request, response);
+   homeController.home();
 });
 
 // Inclusion des routes liées aux livres
