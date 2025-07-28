@@ -11,7 +11,7 @@ const app = Express();
 
 // Définition du port sur lequel le serveur va écouter
 // les requêtes HTTP. Ici, nous utilisons le port 3000.
-const PORT = 3000;
+const PORT = 3006;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
