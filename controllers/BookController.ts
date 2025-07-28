@@ -41,10 +41,23 @@ export class BookController extends Controller {
       return book.id === bookId;
     });
 
+    /**
+     * 
+    public books() {
+      this.response.render("pages/books", { books });
+    }
+
+    Deuxième argument permet de passer des variables à la vue (EJS).
+    Sous forme d'objet :
+    {
+      book: { title: "Mon titre" }
+    }
+     */
+
     // Si le livre est trouvé, on envoie
     // une réponse JSON avec les données du livre
     if (book) {
-      this.response.json(book);
+      this.response.render("pages/book", { book });
       return;
     }
 
@@ -53,7 +66,7 @@ export class BookController extends Controller {
     // et un code de statut HTTP 404 (Not Found)
     // pour indiquer que la ressource demandée
     // n'existe pas
-    this.response.status(404).json({ error: "Book not found" });
+    this.response.status(404).render("_errors/404.ejs", { error: "Book not found" });
   }
 
   // Méthode de la classe "BookController",
