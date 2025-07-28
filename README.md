@@ -117,3 +117,14 @@ Par exemple, pour le fichier `/public/css/style.css`, on pourra faire :
 **Note :** Il ne faut pas préciser `/public` dans les imports !
 
 ### Lundi 28 juillet 2025
+
+Maintenant que l'on a un serveur "prêt à l'emploi", il va falloir s'occuper de deux dernières choses :
+
+- La transpilation Typescript vers Javascript
+- La transpilation SCSS vers CSS
+
+Pour le Typescript, on parle uniquement des fichiers à destination du navigateur. On ne va pas toucher aux fichiers Typescript qui sont exécutés côté serveur _(pour Express par exemple)_ !
+
+#### "Transpilation, c'est quand on a chaud et qu'on est dyslexique ?"
+
+Déjà : Merci Quentin pour cette phrase 😏
