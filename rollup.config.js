@@ -9,7 +9,8 @@ export default {
   output: [
     {
       dir: "public/js",
-      format: "umd"
+      format: "umd",
+      sourcemap: !isProduction,
     }
   ],
   plugins: [

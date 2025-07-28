@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/ts/test.ts","../../../../src/ts/index.ts"],"sourcesContent":["export const message = \"OK\";","import { message } from \"./test\";\n\n// Je suis un commentaire\nconsole.log(message);"],"names":[],"mappings":";;;;;CAAO,MAAM,OAAO,GAAG,IAAI;;CCE3B;CACA,OAAO,CAAC,GAAG,CAAC,OAAO,CAAC;;;;;;"}
