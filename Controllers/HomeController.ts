@@ -6,7 +6,7 @@ export class HomeController extends Controller {
   // Méthode de la classe "HomeController",
   // en charge de l'envoi de la réponse contenant
   // l'affichage HTML de la page d'accueil
-  public home() {
+  public homePage() {
     this.response.render("pages/home");
   }
 }

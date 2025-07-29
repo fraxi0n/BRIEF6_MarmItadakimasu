@@ -1,7 +1,7 @@
 import { logMiddleware } from './middlewares';
 import { fileURLToPath } from 'node:url';
 import Express from 'express';
-import router from './routes';
+import router from './routes/index';
 import path from "node:path";
 
 // Création d'une instance de l'application Express
@@ -25,10 +25,6 @@ app.use(Express.json());
 
 app.use(Express.static(path.join(__dirname, "public")))
 
-// Définition d'un middleware maison, qui vient
-// afficher un message dans la console à chaque
-// fois qu'une requête entre sur le serveur
-app.use(logMiddleware);
 
 // Utilisation du routeur défini dans le fichier `routes/index.ts`
 // qui contient toutes les routes de l'application
