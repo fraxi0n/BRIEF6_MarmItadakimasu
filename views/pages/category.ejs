@@ -1,21 +1,14 @@
 <%- include("../partials/head", { title: "Page d'accueil" }) %>
 
-
 <main>
+  <h2><%= category.name %></h2>
+  <p><%= category.description %></p>
 
-<p>
-     to do description categorie recette a prendre dans data
-</p>
-  
-
-   <%- include("../components/recipeLinkComponent" )%>
-   <%- include("../components/recipeLinkComponent" )%>
-   <%- include( "../components/recipeLinkComponent")%>
-
-
-    
-
+  <ul>
+    <% recipesTarget.forEach( (recipe) => { %>
+    <li><%- include("../components/recipeLinkComponent" , {recipe} )%></li>
+    <% }); %>
+  </ul>
 </main>
-
 
 <%- include("../partials/footer") %>

@@ -7,13 +7,17 @@ export class CategoryController extends Controller {
     const id =  parseInt(this.request.params.id)
 
 
-    const desc = categories.find ( (categorie) => { if (categorie.id= id) { return categorie.description}  })
+    const category = categories.find ( (categorie) => categorie.id=== id )
 
-    this.request.params.id
-
-
-  const recipesTarget = recipes.filter( recipe => Math.floor(recipe.id/100) ==  id )
+    if(category)
+    {
+        const recipesTarget = recipes.filter( recipe => Math.floor(recipe.id/100) ==  id )
     
-    this.response.render("pages/category" , { desc ,recipesTarget } );
+    this.response.render("pages/category" , { category ,  recipesTarget } );
+    }
+    else
+    {
+      this.response.render("pages/404")
+    }
   }
 }

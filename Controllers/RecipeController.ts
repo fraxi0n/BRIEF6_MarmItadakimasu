@@ -6,15 +6,15 @@ export class RecipeController extends Controller {
   public recipePage() {
 
     const id = parseInt( this.request.params.id)
-    const target = recipes.find( recipe => recipe.id ==  id)
+    const recipe = recipes.find( recipe => recipe.id ==  id)
 
 
     //todo ¨PLEIN DE DATA"
 
 
-    if (target)
+    if (recipe)
     {
-      this.response.render("pages/recipe",{target});
+      this.response.render("pages/recipe",{recipe});
     }
     else
     {
