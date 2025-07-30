@@ -1,9 +1,9 @@
-import { Controller } from "../libs/Controller";
+// import { Controller } from "../libs/Controller";
 
-export class ErrorController extends Controller {
+// export class ErrorController extends Controller {
 
 
-  public error404 () {
-    this.response.render("pages/404");
-  }
-}
+//   public error404 () {
+//     this.response.render("pages/404");
+//   }
+// }

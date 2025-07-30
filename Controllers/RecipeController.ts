@@ -1,5 +1,5 @@
 import { Controller } from "../libs/Controller";
-import { recipes } from "../data/data";
+import { categories, ingredients, recipeComments, recipeIngredients, recipeInstructions, recipes } from "../data/data";
 
 export class RecipeController extends Controller {
 
@@ -9,16 +9,34 @@ export class RecipeController extends Controller {
     const recipe = recipes.find( recipe => recipe.id ==  id)
 
 
-    //todo ¨PLEIN DE DATA"
-
 
     if (recipe)
-    {
-      this.response.render("pages/recipe",{recipe});
+      {
+      const ingredientsComplete = recipeIngredients.map( (rIngredient)=> { 
+        if(rIngredient.recipeId==id)
+          {
+            const ingredientName = ingredients.find( ing => ing.id==rIngredient.id )?.name
+            const ingredientComplete =  {...rIngredient, name :  ingredientName }
+            return ingredientComplete
+          } 
+      } ).filter(ing =>!!ing ) // filtre les undefineds
+
+      const comments = recipeComments.filter( (comment)=>  comment.recipeId==id)
+
+      const instructions = recipeInstructions.filter( (instruction)=>  instruction.recipeId==id)
+
+      const category =  categories.find ( cat => cat.id== Math.floor(id/100) ) 
+
+      // console.log ("recipe"  , recipe)
+      // console.log ("ingredientsComplete" , ingredientsComplete)
+      // console.log ("instructions" , instructions)
+      // console.log ("comments", comments)
+
+      this.response.render("pages/recipePage",{recipe,comments, ingredientsComplete, instructions , category });
     }
     else
     {
-      this.response.render("pages/not-found");
+      this.response.render("pages/404Page",{  ressource : "recipe" , id : id});
     }
   }
 }

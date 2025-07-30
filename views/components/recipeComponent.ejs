@@ -1,5 +1,45 @@
 <div>
 
-        <p>JE LA recette de <%= recipe.title %> </p>
+        <p>recette de <%= recipe.title %> </p>
+
+        <%= recipe.description %>
+
+        <br>
+        <% ingredientsComplete.forEach(ingredient => { %>
+        <p>
+                <%= ingredient.name %>    
+                <%= ingredient.quantity%>
+                <%= ingredient.unit %>
+        </p>                
+        <% });   %>
+
+
+        <br>
+
+
+        <!-- sort -->
+                <% instructions.sort().forEach(instruction => { %>
+        <p>
+                <%= instruction.step %>    
+                <%= instruction.description%>
+        </p>                
+        <% });   %>
+
+
+
+        <% comments.forEach(  comment=> { %>
+        <p>
+                <%= comment.username %>    
+                <%= comment.content %>    
+                <%= comment.note %>    
+                <%= comment.createdAt %>    
+        </p>                
+        <% });   %>
+        
+
+
+
+
+
 
 </div>

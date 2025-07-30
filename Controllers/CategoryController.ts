@@ -13,11 +13,11 @@ export class CategoryController extends Controller {
     {
         const recipesTarget = recipes.filter( recipe => Math.floor(recipe.id/100) ==  id )
     
-    this.response.render("pages/category" , { category ,  recipesTarget } );
+    this.response.render("pages/categoryPage" , { category ,  recipesTarget } );
     }
     else
     {
-      this.response.render("pages/404")
+      this.response.render("pages/404Page" ,{  ressource : "category" , id : id})
     }
   }
 }

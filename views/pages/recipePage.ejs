@@ -1,11 +1,10 @@
 <%- include("../partials/head", { title: "Page d'accueil" }) %>
-
+<%const categoryName= [ "null" ,"Entrée" , "Plat Principal", "Dessert"] %>
 <main>
-  
-  <!-- todo rien juste inclure un composant recette  dans ../componant/recipiesComponent -->
 <%- include("../components/recipeComponent" )%>
-   
 
+
+<a href="/category/<%=category.id%>" > Parcourir  les  <%=  category.name %> </a> 
 
 </main>
 
