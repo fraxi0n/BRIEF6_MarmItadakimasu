@@ -1,7 +1,10 @@
 <%- include("../partials/head", { title: "Page d'accueil" }) %>
 
 <main>
-
+<p>Recette random du jour :</p>
+<a href="<%="?randomID="+recipe.id %>" >
+    <button>recharger une recette</button>
+</a>
+<%- include("../components/recipeComponent" )%>
 </main>
-
 <%- include("../partials/footer") %>
