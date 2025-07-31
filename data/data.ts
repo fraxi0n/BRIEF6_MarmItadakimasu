@@ -1,4 +1,5 @@
-import { Category, Ingredient, RecipeIngredient, RecipeInstruction, Recipe, RecipeComment } from "./type";
+import path from "node:path";
+import { Category, Ingredient, RecipeIngredient, RecipeInstruction, Recipe, RecipeComment, IngredientAsset } from "./type";
 
 
 const categories: Category[] = [
@@ -19,6 +20,38 @@ const categories: Category[] = [
 			"Des desserts sucrés pour terminer le repas sur une note agréable.",
 	},
 ];
+
+
+//todo 
+const ingredientAssets : IngredientAsset[] = [
+	{ingredientID : 1 , path : "/assets/pain.webp"},
+	{ingredientID : 2 , path : "/assets/tomate.webp"},
+	{ingredientID : 3 , path : "/assets/basilic.webp"},
+	{ingredientID : 4 , path : "/assets/oliveOil.png"},
+	{ingredientID : 5 , path : "/assets/concombre.webp"},
+	{ingredientID : 6 , path : "/assets/oignonRouge.webp"},
+	{ingredientID : 7 , path : "/assets/feta.webp"},
+	{ingredientID : 8 , path : "/assets/olive.webp"},
+	{ingredientID : 9 , path : "/assets/pate.webp"},
+	{ingredientID : 10 , path : "/assets/oeuf.webp"},
+	{ingredientID : 11 , path : "/assets/pancetta.webp"},
+	{ingredientID : 12 , path : "/assets/parmesan.webp"},
+	{ingredientID : 13 , path : "/assets/poivre.webp"},
+	{ingredientID : 14 , path : "/assets/poulet.webp"},
+	{ingredientID : 15 , path : "/assets/herbes.webp"},
+	{ingredientID : 16 , path : "/assets/ail.webp"},
+	{ingredientID : 17 , path : "/assets/beurre.webp"},
+	{ingredientID : 18 , path : "/assets/biscuitSpoon.webp"},
+	{ingredientID : 19 , path : "/assets/cafe.webp"},
+	{ingredientID : 20 , path : "/assets/mascarpone.webp"},
+	{ingredientID : 21 , path : "/assets/cacao.webp"},
+	{ingredientID : 22 , path : "/assets/pateBrisee.webp"},
+	{ingredientID : 23 , path : "/assets/pommeGolden.webp"},
+	{ingredientID : 24 , path : "/assets/sucre.webp"},
+	{ingredientID : 25 , path : "/assets/cannelle.webp"},
+
+
+] 
 
 const ingredients: Ingredient[] = [
 	{ id: 1, name: "Pain" },
@@ -242,4 +275,4 @@ const recipeComments: RecipeComment[] = [
 ];
 
 
-export {categories , ingredients , recipeIngredients , recipeInstructions , recipes , recipeComments}
+export {categories , ingredients , recipeIngredients , recipeInstructions , recipes , recipeComments , ingredientAssets}

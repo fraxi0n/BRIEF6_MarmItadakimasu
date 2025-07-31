@@ -39,4 +39,12 @@ type Category = {
 	description: string;
 };
 
-export {Category,RecipeComment , Recipe , RecipeInstruction , Ingredient , RecipeIngredient}
+
+//Type ajouté pour ajouter des assets aux ingredients sans modifier le type ingredient 
+type IngredientAsset = { 
+	ingredientID : number ,
+	path : string
+}
+
+
+export {Category,RecipeComment , Recipe , RecipeInstruction , Ingredient , RecipeIngredient , IngredientAsset}
