@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    background-image: url(https://images.pexels.com/photos/112548/duck-wild-mallard-animals-112548.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;    
+}
+
+.container-filter{
+    background-color: rgba(207, 166, 204, 0.712);
+
+}

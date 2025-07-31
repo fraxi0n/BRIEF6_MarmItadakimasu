@@ -1,4 +1,3 @@
-import { logMiddleware } from './middlewares';
 import { fileURLToPath } from 'node:url';
 import Express from 'express';
 import router from './routes/index';
