@@ -2,7 +2,7 @@
 
 <main>
 <p>Recette random du jour :</p>
-<a href="<%="?randomID="+recipe.id %>" >
+<a href="<%="?excludeID="+recipe.id +"+"+query%>" >
     <button>recharger une recette</button>
 </a>
 <%- include("../components/recipeComponent" )%>

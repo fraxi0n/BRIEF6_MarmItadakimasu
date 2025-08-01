@@ -8,20 +8,36 @@ import type { Request, Response } from "express";
 export class HomeController extends Controller {
 
   randomRecipe : Recipe
+  stringedQuery : string  
 
   constructor(request: Request, response: Response)
   {
     super(request, response)
+
+    const exludeIDs :string[] = []
+
+    this.stringedQuery  = ""
+    if (request.query.excludeID)
+    {
+      this.stringedQuery+=request.query.excludeID.toString()
+    }
+
     let tempRR : Recipe
+    let fuseIndex = 0 
     do
     {
-       tempRR = recipes [Math.floor(Math.random()* recipes.length)]
+      tempRR = recipes [Math.floor(Math.random()* recipes.length)]
+      fuseIndex++
+      if (fuseIndex>100)
+      {
+        this.stringedQuery=""
+      }
     }
-  while(  tempRR.id.toString() == request.query.randomID)
+  while( this.stringedQuery  && this.stringedQuery.split(" ").includes(tempRR.id.toString()))
     this.randomRecipe= tempRR
   }
 
   public homePage() {
-    this.response.render("pages/homePage", {...this.getRecipe(this.randomRecipe),  id :0 } );
+    this.response.render("pages/homePage", {...this.getRecipe(this.randomRecipe),  id :this.randomRecipe.id , query : this.stringedQuery } );
   }
 }
