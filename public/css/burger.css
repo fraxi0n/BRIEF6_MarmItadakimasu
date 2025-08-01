@@ -1,9 +1,13 @@
 .burger {
   width: 50px;
-  height: 94px;
+  height: 52px;
 
   background-image: url("../assets/menu_burger_SS.png");
   background-repeat: no-repeat;
+}
+
+.burger:hover {
+  cursor: pointer;
 }
 
 .scale {
