@@ -1,69 +1,67 @@
-//todo mettre la fonction de burger open / close de
-console.log("js coté client , coucou") 
+const burgerExpend = document.getElementById("burger-expend")
 
-let itest = 0
 const burger = {
    dom : document.getElementById("burger"),
    isOpen : false,
    isHover : false,
-   numSprite : 1,
-   nbSpriteTotal : 13,
    isWatching : false,
+   numSprite : 1,
+
 
    setOpen() { this.isOpen = !this.isOpen 
+    if(this.isOpen){
+        burgerExpend.classList.remove("is-hidden")
+    }
+    else 
+    {
+        burgerExpend.classList.add("is-hidden")
+    }
     !this.isWatching&&this.watchTransition()
     }
     ,
     setHover(pIsHover) { this.isHover = pIsHover 
     !this.isWatching&&this.watchTransition()
-    console.log("hover ="+ this.isHover)
+    
+    }
+    ,
+
+    changeFrame(inc)//+1 || -1
+    {
+        const transitionSpeed = 15
+        this.numSprite+=inc
+        this.dom.className = 'sprite-burger-'+this.numSprite
+        setTimeout( ()=> this.watchTransition() , transitionSpeed)
     }
     ,
 
     watchTransition()
     {
-        itest++
-        console.log ("watching "+itest)
+        const nbSpriteTotal =13
         this.isWatching =true
+
         if (!this.isOpen && !this.isHover)
         {
             if (this.numSprite == 1)
             {
-                this.isWatching = false 
-                return
+                this.isWatching = false ;return
             }
             else
             {
-                this.numSprite--
-                console.log(this.numSprite)
-                setTimeout( this.watchTransition() , 200)
+                this.changeFrame(-1)
             }
-
-
         }
         else
         {
-            if (this.numSprite == this.nbSpriteTotal)
+            if (this.numSprite == nbSpriteTotal)
             {
-                this.isWatching = false 
-                return
+                this.isWatching = false; return
             }
             else
             {
-                
-                this.numSprite++
-                console.log(this.numSprite)
-                setTimeout( this.watchTransition() , 200)
+                this.changeFrame(1)
             }
         }
-        
     },
-
-
-   burgerFuse(){},
-   burgerSpread(){},
-
-
 }
 
 burger.dom.addEventListener( 'mouseenter' , () =>burger.setHover(true))
