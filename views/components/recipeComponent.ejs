@@ -1,47 +1,38 @@
-<div>
+<div class="recipe-page">
 
-        <p>recette de <%= recipe.title %> </p>
+  <header class="recipe-header">
+    <h1 class="recipe-title">Recette de <%= recipe.title %></h1>
+    <button class="burger-button">
+      <span class="burger-steam"></span>
+    </button>
+  </header>
 
-        <%= recipe.description %>
+  <section class="paper-card">
+    <p class="recipe-description"><%= recipe.description %></p>
+  </section>
 
-        <br>
-        <% ingredientsComplete.forEach(ingredient => { %>
-        <p>
-                <%= ingredient.name %>    
-                <%= ingredient.quantity%>
-                <%= ingredient.unit %>
-                <br>
-                <img src=<%-ingredient.assetPath%>  >
-        </p>                
-        <% });   %>
+  <section class="section">
+    <h2 class="site-subtitle">Ingrédients</h2>
+    <div class="ingredients">
+      <% ingredientsComplete.forEach(ingredient => { %>
+        <%- include('./ingredient', { ingredient }) %>
+      <% }); %>
+    </div>
+  </section>
 
+  <section class="section instructions">
+    <% instructions.sort().forEach(instruction => { %>
+      <div class="instruction">
+        <div class="instruction-step">#<%= instruction.step %></div>
+        <p class="instruction-text"><%= instruction.description %></p>
+      </div>
+    <% }); %>
+  </section>
 
-        <br>
-
-
-        <!-- sort -->
-                <% instructions.sort().forEach(instruction => { %>
-        <p>
-                <%= instruction.step %>    
-                <%= instruction.description%>
-        </p>                
-        <% });   %>
-
-
-
-        <% comments.forEach(  comment=> { %>
-        <p>
-                <%= comment.username %>    
-                <%= comment.content %>    
-                <%= comment.note %>    
-                <%= comment.createdAt %>    
-        </p>                
-        <% });   %>
-        
-
-
-
-
-
+  <section class="section comments">
+    <% comments.forEach(comment => { %>
+      <%- include('./comment', { comment }) %>
+    <% }); %>
+  </section>
 
 </div>

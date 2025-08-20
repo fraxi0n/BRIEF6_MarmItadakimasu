@@ -1,0 +1,341 @@
+/*
+  MarmITADAKIMASU — feuille de style principale
+  DA: animé japonais, goofy, appétissant
+  Auteur: vous ;)
+
+  Guide rapide:
+  - Ajoutez la classe .recipe-page sur le conteneur principal
+  - Utilisez .ingredient-card pour chaque ingrédient (composant atomique)
+  - Utilisez .comment-card pour chaque commentaire (composant atomique)
+  - Le bouton menu burger: .burger-button (avec un burger manga en pur CSS)
+*/
+
+/* ------------------------------ */
+/* Fonts & Variables              */
+/* ------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+:root {
+  /* Palette inspirée bento/ramen */
+  --bg: #fff8f0;
+  --paper: #fffdf9;
+  --ink: #1b1b1b;
+  --primary: #ff4b3e;     /* sauce piquante */
+  --secondary: #ffb703;   /* œuf/jaune */
+  --tertiary: #2ec4b6;    /* wasabi/menthe */
+  --accent: #e74fb4;      /* pickled ginger */
+  --line: rgba(0,0,0,.12);
+  --muted: #7a7a7a;
+
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --shadow-soft: 0 6px 18px rgba(0,0,0,.08);
+  --shadow-pop: 0 10px 24px rgba(255,75,62,.25);
+
+  --font-round: 'M PLUS Rounded 1c', system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans JP', sans-serif;
+  --font-body: 'Noto Sans JP', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* ------------------------------ */
+/* Reset mignon                   */
+/* ------------------------------ */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255,183,3,.12), transparent 40%),
+    radial-gradient(circle at 100% 0%, rgba(46,196,182,.10), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(231,79,180,.10), transparent 40%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: var(--shadow-soft); }
+
+/* ------------------------------ */
+/* Layout principal               */
+/* ------------------------------ */
+.recipe-page {
+  max-width: 1024px;
+  padding: clamp(16px, 2.2vw, 32px);
+  margin: 0 auto;
+}
+
+.paper-card {
+  background: var(--paper);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-soft);
+  border: 2px solid #00000010;
+  padding: clamp(16px, 2.2vw, 28px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* petit motif halftone manga */
+.paper-card::after {
+  content: '';
+  position: absolute; inset: -20% -10% auto auto; width: 280px; height: 280px; pointer-events: none;
+  background:
+    radial-gradient(#000 1px, transparent 1px) 0 0/8px 8px,
+    radial-gradient(#000 1px, transparent 1px) 4px 4px/8px 8px;
+  opacity: .035;
+  border-radius: 50%;
+  transform: rotate(-12deg);
+}
+
+/* ------------------------------ */
+/* Header & Titre                 */
+/* ------------------------------ */
+.site-title {
+  font-family: var(--font-round);
+  font-weight: 900;
+  font-size: clamp(28px, 5vw, 56px);
+  margin: 8px 0 14px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  color: var(--primary);
+  text-shadow: 3px 3px 0 #00000010, 0 6px 18px rgba(255,75,62,.25);
+}
+.site-subtitle { color: var(--muted); margin-bottom: 18px; }
+
+/* sticker "Itadakimasu" */
+.badge-itadakimasu {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg, var(--secondary), #ffd166);
+  color: #3a2600;
+  padding: 8px 14px; border-radius: 999px;
+  font-family: var(--font-round); font-weight: 800; font-size: 13px;
+  border: 2px solid #00000010;
+  box-shadow: var(--shadow-soft);
+}
+.badge-itadakimasu::before { content: '🙏'; }
+
+/* ------------------------------ */
+/* Bouton menu burger (manga)     */
+/* ------------------------------ */
+.burger-button { 
+  --size: 56px;
+  position: relative;
+  width: var(--size); height: var(--size);
+  border-radius: 50%;
+  border: 3px solid #00000015;
+  background: radial-gradient(circle at 50% 40%, #ffdd8a 0 55%, #e8a94a 56% 100%); /* bun */
+  box-shadow: var(--shadow-pop);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.burger-button:hover { transform: translateY(-2px) rotate(-2deg); }
+.burger-button:active { transform: translateY(0) scale(.98); }
+
+/* graines de sésame */
+.burger-button::before, .burger-button::after { content: ''; position: absolute; inset: 0; border-radius: 50%; }
+.burger-button::before {
+  background:
+   radial-gradient(#fff 43%, #e1e1e1 44% 100%) 18px 14px/8px 6px no-repeat,
+   radial-gradient(#fff 43%, #e1e1e1 44% 100%) 30px 20px/7px 5px no-repeat,
+   radial-gradient(#fff 43%, #e1e1e1 44% 100%) 22px 26px/8px 6px no-repeat;
+  opacity: .85;
+}
+/* steak + salade + fromage (goofy) */
+.burger-button::after {
+  mask: radial-gradient(circle at 50% 40%, transparent 0 52%, #000 53%);
+  background:
+    linear-gradient(#5a2d0c, #3a1d07) 0 58%/100% 12% no-repeat,
+    linear-gradient(#3dbb5b, #2d9446) 0 70%/100% 8% no-repeat,
+    linear-gradient(#ffd85a, #f4b800) 0 78%/100% 8% no-repeat;
+}
+
+/* fumée qui s'échappe – kawaii */
+.burger-steam { position: absolute; top: -8px; right: -2px; width: 10px; height: 10px; }
+.burger-steam::before, .burger-steam::after { content: ''; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #ffffffaa; filter: blur(2px); animation: steam 2.6s infinite ease-in; }
+.burger-steam::after { left: -8px; animation-delay: 1.1s; }
+@keyframes steam { 0%{ transform: translateY(0) scale(.7); opacity:.8 } 100%{ transform: translateY(-18px) scale(1.1); opacity:0 } }
+
+/* ------------------------------ */
+/* Bloc recette                   */
+/* ------------------------------ */
+.recipe-header { display:flex; align-items:flex-start; justify-content:space-between; gap: 16px; margin-bottom: 18px; }
+.recipe-title {
+  font-family: var(--font-round); font-weight: 900;
+  font-size: clamp(22px, 3.2vw, 36px);
+  color: #1a1a1a;
+  margin: 0;
+}
+.recipe-meta { display:flex; flex-wrap:wrap; gap:8px 12px; color: var(--muted); font-size: 14px; }
+
+.recipe-description { font-size: 1.05rem; margin: 8px 0 18px; }
+
+/* infos: temps, portions, difficulté */
+.meta-chip {
+  display:inline-flex; align-items:center; gap:8px; padding: 6px 10px; border-radius: 999px;
+  background: #ffffff; border: 1px dashed var(--line); color:#2f2f2f;
+  font-family: var(--font-round); font-weight:700; font-size: 12px;
+}
+.meta-chip .emoji { font-size: 16px; }
+
+/* ------------------------------ */
+/* Ingrédients (composant)        */
+/* ------------------------------ */
+.ingredients {
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 14px;
+}
+.ingredient-card {
+  background: #fff;
+  border: 2px solid #00000008; border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  padding: 12px 12px 14px; position: relative;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.ingredient-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.10); }
+.ingredient-name { font-family: var(--font-round); font-weight: 800; letter-spacing:.2px; }
+.ingredient-qty { color: var(--muted); font-size: .95rem; }
+.ingredient-asset { margin-top: 8px; border-radius: 12px; overflow: hidden; }
+
+/* petit badge kawaii */
+.ingredient-card::after {
+  content: '★'; position: absolute; right: 10px; top: 10px; font-size: 14px; color: var(--accent);
+  filter: drop-shadow(0 2px 6px rgba(231,79,180,.35));
+}
+
+/* ------------------------------ */
+/* Étapes / Instructions          */
+/* ------------------------------ */
+.instructions { margin-top: 10px; display: grid; gap: 10px; }
+.instruction {
+  display:grid; grid-template-columns: 58px 1fr; gap: 12px; align-items: start;
+  background: #fff; border-radius: var(--radius-xl);
+  border: 2px solid #00000008; box-shadow: var(--shadow-soft);
+  padding: 12px;
+}
+.instruction-step {
+  font-family: var(--font-round); font-weight: 900; font-size: 22px; color: var(--primary);
+  background: #fff5f3; border: 2px solid #ffd1cb; border-radius: 14px; display:flex; align-items:center; justify-content:center;
+}
+.instruction-text { padding-top: 2px; }
+
+/* vitesse manga (optionnel) */
+.instruction.accel::before {
+  content:''; display:block; height: 4px; border-radius: 999px; margin-bottom: 8px;
+  background: linear-gradient(90deg, transparent, var(--primary));
+  animation: dash 900ms ease-in-out infinite alternate;
+}
+@keyframes dash { from{ transform: translateX(-12px); opacity:.4 } to{ transform: translateX(12px); opacity:1 } }
+
+/* ------------------------------ */
+/* Commentaires (composant)       */
+/* ------------------------------ */
+.comments { margin-top: 18px; display: grid; gap: 12px; }
+.comment-card {
+  background: #fff; border: 2px solid #0000000d; border-radius: var(--radius-xl); box-shadow: var(--shadow-soft);
+  padding: 12px 14px;
+}
+.comment-header { display:flex; align-items:center; gap: 10px; justify-content:space-between; }
+.comment-user { font-family: var(--font-round); font-weight: 800; }
+.comment-date { color: var(--muted); font-size: 12px; }
+.comment-content { margin-top: 6px; }
+
+/* note/étoiles simple */
+.stars { display:inline-flex; gap: 2px; font-size: 16px; color: var(--secondary); text-shadow: 0 2px 10px rgba(255,183,3,.25); }
+
+/* ------------------------------ */
+/* Boutons & Interactions         */
+/* ------------------------------ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px; padding: 10px 14px; border-radius: 999px;
+  font-family: var(--font-round); font-weight: 900; letter-spacing: .3px;
+  border: 2px solid #00000010; cursor:pointer; user-select: none;
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+}
+.btn-primary { background: linear-gradient(145deg, var(--primary), #ff6a60); color: #fff; box-shadow: var(--shadow-pop); }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost { background: #fff; color: #1f1f1f; }
+
+/* ------------------------------ */
+/* Étiquettes & tags ingrédients  */
+/* ------------------------------ */
+.tag { display:inline-block; padding: 6px 10px; font-size: 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); }
+.tag-primary { background: #fff3f2; border-color: #ffc9c4; color: var(--primary); }
+
+/* ------------------------------ */
+/* Images recettes                 */
+/* ------------------------------ */
+.recipe-media { border-radius: var(--radius-2xl); overflow: hidden; position: relative; }
+.recipe-media img { display:block; width:100%; }
+/* sparkles appétissants */
+.recipe-media .sparkle { position:absolute; width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(#fff, #ffe7a8); box-shadow: 0 0 0 3px rgba(255,255,255,.45); animation: sparkle 1.6s infinite ease-in-out; }
+.recipe-media .sparkle:nth-child(1){ top:12%; left:18%; animation-delay:.0s }
+.recipe-media .sparkle:nth-child(2){ top:26%; right:12%; animation-delay:.5s }
+.recipe-media .sparkle:nth-child(3){ bottom:18%; left:36%; animation-delay:1s }
+@keyframes sparkle { 0%,100% { transform: scale(.6); opacity:.7 } 50% { transform: scale(1.15); opacity:1 } }
+
+/* ------------------------------ */
+/* Grilles & utilitaires          */
+/* ------------------------------ */
+.grid { display:grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.section { margin: 18px 0; }
+.sep { height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); border: 0; }
+
+/* ------------------------------ */
+/* Responsif                      */
+/* ------------------------------ */
+@media (max-width: 720px) {
+  .recipe-header { flex-direction: column; align-items: stretch; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .burger-button { --size: 52px; }
+}
+
+/* ------------------------------ */
+/* Exemples de mapping EJS        */
+/* ------------------------------ */
+/* 
+<div class="recipe-page">
+  <header class="recipe-header">
+    <h1 class="recipe-title">recette de <%= recipe.title %></h1>
+    <button class="burger-button"><span class="burger-steam"></span></button>
+  </header>
+
+  <section class="paper-card">
+    <p class="recipe-description"><%= recipe.description %></p>
+  </section>
+
+  <section class="section">
+    <h2 class="site-subtitle">Ingrédients</h2>
+    <div class="ingredients">
+      <% ingredientsComplete.forEach(ingredient => { %>
+        <article class="ingredient-card">
+          <div class="ingredient-name"><%= ingredient.name %></div>
+          <div class="ingredient-qty"><%= ingredient.quantity %> <%= ingredient.unit %></div>
+          <div class="ingredient-asset"><img src="<%- ingredient.assetPath %>" alt="<%= ingredient.name %>"></div>
+        </article>
+      <% }); %>
+    </div>
+  </section>
+
+  <section class="section instructions">
+    <% instructions.sort().forEach(instruction => { %>
+      <div class="instruction">
+        <div class="instruction-step">#<%= instruction.step %></div>
+        <p class="instruction-text"><%= instruction.description %></p>
+      </div>
+    <% }); %>
+  </section>
+
+  <section class="section comments">
+    <% comments.forEach(comment => { %>
+      <article class="comment-card">
+        <div class="comment-header">
+          <span class="comment-user"><%= comment.username %></span>
+          <time class="comment-date"><%= comment.createdAt %></time>
+        </div>
+        <div class="stars">★★★★★</div>
+        <p class="comment-content"><%= comment.content %></p>
+      </article>
+    <% }); %>
+  </section>
+</div>
+*/
