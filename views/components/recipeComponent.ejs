@@ -2,9 +2,6 @@
 
   <header class="recipe-header">
     <h1 class="recipe-title">Recette de <%= recipe.title %></h1>
-    <button class="burger-button">
-      <span class="burger-steam"></span>
-    </button>
   </header>
 
   <section class="paper-card">
@@ -22,7 +19,7 @@
 
   <section class="section instructions">
     <% instructions.sort().forEach(instruction => { %>
-      <div class="instruction">
+      <div class="instruction paper-card">
         <div class="instruction-step">#<%= instruction.step %></div>
         <p class="instruction-text"><%= instruction.description %></p>
       </div>

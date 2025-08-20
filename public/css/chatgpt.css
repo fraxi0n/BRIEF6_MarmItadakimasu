@@ -246,7 +246,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
   display:inline-flex; align-items:center; gap:8px; padding: 10px 14px; border-radius: 999px;
   font-family: var(--font-round); font-weight: 900; letter-spacing: .3px;
   border: 2px solid #00000010; cursor:pointer; user-select: none;
-  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .2s ease;
 }
 .btn-primary { background: linear-gradient(145deg, var(--primary), #ff6a60); color: #fff; box-shadow: var(--shadow-pop); }
 .btn-primary:hover { transform: translateY(-2px); }
