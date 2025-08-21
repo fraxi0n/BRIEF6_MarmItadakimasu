@@ -19,6 +19,15 @@ export abstract class Controller {
     this.response = response;
   }
 
+  protected getNavLink ()
+  {
+    // retournee toute les donné de link besoin 
+    //  { catégorieName : "" , categoryUrl : "", category recipes : [{objet recette  } ,{}] 
+
+    return // link data
+
+  }
+
   protected getRecipe (recipe:Recipe) 
   {
     const rID = recipe.id
