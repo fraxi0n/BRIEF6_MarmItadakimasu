@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { Recipe } from "../data/type";
+import { recipes } from "../data/data";
 import { recipeIngredients, ingredients, ingredientAssets, recipeComments, recipeInstructions, categories } from "../data/data";
 
 // La classe "Controller" est une classe abstraite
@@ -21,12 +22,14 @@ export abstract class Controller {
 
   protected getNavLink ()
   {
-    // retournee toute les donné de link besoin 
-    //  { catégorieName : "" , categoryUrl : "", category recipes : [{objet recette  } ,{}] 
-
-    return // link data
-
+    const categoriesLink = categories.map(cat => {
+      const recipesInCat = recipes.filter ((recipe : Recipe) => Math.floor(recipe.id / 100) === cat.id);
+      const categoryLink = { name : cat.name, id : cat.id, recipeLink : recipesInCat }
+      return categoryLink;
+    })
+    return categoriesLink
   }
+
 
   protected getRecipe (recipe:Recipe) 
   {

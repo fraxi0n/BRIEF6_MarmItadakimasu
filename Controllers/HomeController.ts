@@ -1,5 +1,5 @@
 import { recipes } from "../data/data";
-import { Recipe } from "../data/type";
+import { Recipe, NavLink } from "../data/type";
 import { Controller } from "../libs/Controller";
 import type { Request, Response } from "express";
 
@@ -9,18 +9,11 @@ export class HomeController extends Controller {
 
   randomRecipe : Recipe
   stringedQuery : string  
-
+  navLinks: NavLink[]; 
   constructor(request: Request, response: Response)
   {
     super(request, response)
-
-    this.getNavLink() 
-    //todo : récupérer les données et les stocker dans une nouvelle propriété de classe 
-    // passer les donnés stocké dans le render (derniere ligne )
-    // faire pareil pour les autre pages 
-
-
-
+    this.navLinks = this.getNavLink();
 
     const exludeIDs :string[] = []
 
@@ -46,6 +39,6 @@ export class HomeController extends Controller {
   }
 
   public homePage() {
-    this.response.render("pages/homePage", {...this.getRecipe(this.randomRecipe),  id :this.randomRecipe.id , query : this.stringedQuery } );
+    this.response.render("pages/homePage", {...this.getRecipe(this.randomRecipe),  id :this.randomRecipe.id , query : this.stringedQuery , link : this.navLinks} );
   }
 }

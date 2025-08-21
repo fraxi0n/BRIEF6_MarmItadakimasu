@@ -42,9 +42,14 @@ type Category = {
 
 //Type ajouté pour ajouter des assets aux ingredients sans modifier le type ingredient 
 type IngredientAsset = { 
-	ingredientID : number ,
-	path : string
+	ingredientID : number;
+	path : string;
 }
 
+type NavLink = {
+	name: string; 
+	id: number; 
+	recipeLink: Recipe[]; 
+}
 
-export {Category,RecipeComment , Recipe , RecipeInstruction , Ingredient , RecipeIngredient , IngredientAsset}
+export {Category,RecipeComment , Recipe , RecipeInstruction , Ingredient , RecipeIngredient , IngredientAsset , NavLink}
