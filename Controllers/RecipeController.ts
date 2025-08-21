@@ -1,7 +1,15 @@
 import { Controller } from "../libs/Controller";
 import { categories, ingredients, recipeComments, recipeIngredients, recipeInstructions, recipes , ingredientAssets} from "../data/data";
+import { NavLink } from "../data/type";
+import type { Request, Response } from "express";
 
 export class RecipeController extends Controller {
+  navLinks: NavLink[]; 
+   constructor(request: Request, response: Response)
+    {
+      super(request, response)
+      this.navLinks = this.getNavLink();
+    }
 
   public recipePage() {
 
@@ -10,11 +18,11 @@ export class RecipeController extends Controller {
 
     if (recipe)
       {
-      this.response.render("pages/recipePage",this.getRecipe(recipe));
+      this.response.render("pages/recipePage",{ ...this.getRecipe(recipe), link: this.navLinks });
       }
     else
       {
-        this.response.render("pages/404Page",{  ressource : "recipe" , id : rID});
+        this.response.render("pages/404Page",{  ressource : "recipe" , id : rID , link : this.navLinks});
       }
   }
 }
