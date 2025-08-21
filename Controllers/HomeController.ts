@@ -14,6 +14,14 @@ export class HomeController extends Controller {
   {
     super(request, response)
 
+    this.getNavLink() 
+    //todo : récupérer les données et les stocker dans une nouvelle propriété de classe 
+    // passer les donnés stocké dans le render (derniere ligne )
+    // faire pareil pour les autre pages 
+
+
+
+
     const exludeIDs :string[] = []
 
     this.stringedQuery  = ""
