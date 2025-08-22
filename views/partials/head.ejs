@@ -19,12 +19,21 @@
     <button class="btn btn-primary">
 
       <div id=burger class="burger scale"></div> 
-    </button>
+        </button>
 
     <div id="burger-expend" class="is-hidden">
-      <img src="/assets/flora.png" >
-    </div>
+    <!-- <%- link[0].name%> -->
+    <ul class="categories-list">
+      <% link.forEach(cat => { %>
+        <li><strong>
+        <%= cat.name %>
+        </strong>
+      
+      <%}) %>
+    </ul> 
     
+          
+    </div>
     
 
     <!-- 
