@@ -1,14 +1,88 @@
-body {
-    margin: 0;
-    background-image: url(https://images.pexels.com/photos/112548/duck-wild-mallard-animals-112548.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;    
+.margin-auto{
+    margin:auto
 }
 
-.container-filter{
-    background-color: rgba(207, 166, 204, 0.712);
 
+.main-header {
+ display : flex;
+ justify-content: space-around;
+ padding : 10px;   
 }
+
+
+ul.categories-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.categories-list li {
+  border-radius: 18px;
+  padding: 3px 3px;
+  margin: 0;
+  text-align: center;
+  transition: background 0.18s, border 0.15s;
+}
+
+ul.categories-list li:hover {
+  background: rgba(255, 253, 249, 0.301);   
+  
+}
+
+ul.categories-list li a {
+  color: #ff4b3e;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 1.75em;
+  margin-bottom: 7px;
+  display: block;
+  padding-bottom: 2px;
+  background: none; 
+}
+
+ul.categories-list li a:hover {
+  color: #1b1b1b;
+}
+
+ul.categories-list li ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.categories-list li ul li {
+  margin: 2px 0;
+}
+
+ul.categories-list li ul li a {
+  color: #7a7a7a;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 2px 0;
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+ul.categories-list li ul li a:hover {
+  color: #1b1b1b;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  ul.categories-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 700px) {
+  ul.categories-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .is-hidden {
     display: none

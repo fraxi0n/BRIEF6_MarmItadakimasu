@@ -92,7 +92,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
   font-family: var(--font-round);
   font-weight: 900;
   font-size: clamp(28px, 5vw, 56px);
-  margin: 8px 0 14px;
+  margin: auto;
   letter-spacing: 0.5px;
   display: inline-block;
   color: var(--primary);

@@ -10,8 +10,8 @@
   background-image: url("../assets/menu_burger_SS.png");
   background-repeat: no-repeat;
 
-  margin: 30px; /*scale * width /2 */
-  transform: scale(2);
+  margin: 25px;
+  transform: scale(1.75); /*taille du bouton burger */
   image-rendering: pixelated;
 
 }
