@@ -374,3 +374,101 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 .category-nav:hover::after {
   transform: translate(-150px, -50%);
 }
+
+
+
+/* ------------------------------ */
+/* PAGE CATÉGORIE                 */
+/* ------------------------------ */
+
+.category-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.category-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.category-header h2 {
+  font-family: var(--font-round);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary);
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.category-header p {
+  font-size: 1.05rem;
+  color: var(--ink-light);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.recipe-list {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-banner {
+  display: block;
+  background: linear-gradient(135deg, #fff, #fffaf6);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-2xl);
+  padding: 18px 22px;
+  font-family: var(--font-round);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+.recipe-banner::before {
+  content: '🍜';
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  opacity: 0.8;
+}
+.recipe-banner span {
+  margin-left: 2.2rem;
+  display: inline-block;
+}
+.recipe-banner:hover {
+  background: linear-gradient(135deg, #fff5f4, #fff);
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: var(--shadow-pop);
+}
+.recipe-banner:hover::after {
+  content: '';
+  position: absolute;
+  top: 0; right: -20px; bottom: 0;
+  width: 12px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--primary),
+    var(--primary) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+  opacity: 0.25;
+  animation: dash-manga 0.5s linear infinite;
+}
+@keyframes dash-manga {
+  from { background-position: 0 0; }
+  to   { background-position: 0 12px; }
+}
+
+

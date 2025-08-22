@@ -1,10 +1,6 @@
-<div>
-
     <!--  un bandeau qui présente la recette et renvoi vers sa page renvoie vers la page recette  -->
-
-<a href="../recipe/<%= recipe.id %>">
-                <p>JE suis un bandeau lien vers la recette  : <%- recipe.title
-        %> </p>
-    </a>
-
-</div>
+      <li>
+        <a href="../recipe/<%= recipe.id %>" class="recipe-banner">
+          <span><%- recipe.title %></span>
+        </a>
+      </li>
