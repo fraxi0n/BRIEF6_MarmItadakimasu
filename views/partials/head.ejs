@@ -16,11 +16,20 @@
     <h1>MarmITADAKIMASU!</h1>
 
     <div id=burger class="burger scale"></div> 
-
-    <div id="burger-expend" class="is-hidden">
-      <img src="/assets/flora.png" >
-    </div>
     
+    <div id="burger-expend" class="is-hidden">
+    <!-- <%- link[0].name%> -->
+    <ul class="categories-list">
+      <% link.forEach(cat => { %>
+        <li><strong>
+        <%= cat.name %>
+        </strong>
+      
+      <%}) %>
+    </ul> 
+    
+          
+    </div>
     
 
     <!-- 
