@@ -1,11 +1,16 @@
 <div class="recipe-page">
 
-  <header class="recipe-header">
-    <h1 class="recipe-title">Recette de <%= recipe.title %></h1>
-  </header>
-
   <section class="paper-card">
+
+    <h2 class="recipe-title">Recette de <%= recipe.title %></h2>
+
+    
+
     <p class="recipe-description"><%= recipe.description %></p>
+
+        <div class="recipe-media">
+    <img src="/assets/placeholder-recipe-img.jpg" alt="placeholder recette">
+
   </section>
 
   <section class="section">
@@ -15,7 +20,11 @@
         <%- include('./ingredient', { ingredient }) %>
       <% }); %>
     </div>
+
+
   </section>
+
+
 
   <section class="section instructions">
     <% instructions.sort().forEach(instruction => { %>

@@ -187,7 +187,7 @@ const recipes: Recipe[] = [
 	{
 		id: 102,
 		title: "Salade Grecque",
-		description: "Une salade fraÃ®che et savoureuse.",
+		description: "Une salade fraîche et savoureuse.",
 	},
 	{
 		id: 201,
@@ -227,7 +227,7 @@ const recipeComments: RecipeComment[] = [
 	{
 		id: 3,
 		username: "Charlie",
-		content: "RafraÃ®chissant et parfait pour l'été !",
+		content: "Rafraîchissant et parfait pour l'été !",
 		note: 5,
 		createdAt: new Date("2025-07-27T12:43:10.476254"),
 		recipeId: 102,
@@ -235,7 +235,7 @@ const recipeComments: RecipeComment[] = [
 	{
 		id: 4,
 		username: "David",
-		content: "Très bon, mais un peu trop salé à mon goÃ»t.",
+		content: "Très bon, mais un peu trop salé à mon goût.",
 		note: 4,
 		createdAt: new Date("2025-07-27T12:43:10.476257"),
 		recipeId: 201,
@@ -243,7 +243,7 @@ const recipeComments: RecipeComment[] = [
 	{
 		id: 5,
 		username: "Eve",
-		content: "Parfait pour un dÃ®ner en famille !",
+		content: "Parfait pour un dîner en famille !",
 		note: 5,
 		createdAt: new Date("2025-07-27T12:43:10.476259"),
 		recipeId: 202,

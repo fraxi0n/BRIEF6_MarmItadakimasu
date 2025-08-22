@@ -27,7 +27,7 @@ const burger = {
 
     changeFrame(inc)//+1 || -1
     {
-        const transitionSpeed = 15
+        const transitionSpeed = 70
         this.numSprite+=inc
         this.dom.className = 'sprite-burger-'+this.numSprite
         setTimeout( ()=> this.watchTransition() , transitionSpeed)

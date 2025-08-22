@@ -1,10 +1,12 @@
 <%- include("../partials/head", { title: "Page d'accueil" }) %>
 
 <main>
-<p>Recette random du jour :</p>
-<a href="<%="?excludeID="+recipe.id +"+"+query%>" >
-    <button>recharger une recette</button>
-</a>
+    <div>
+        <p>Recette random du jour :</p>
+        <a href="<%="?excludeID="+recipe.id +"+"+query%>" >
+            <button class="btn btn-primary" >recharger une recette</button>
+        </a>
+    </div>
 <%- include("../components/recipeComponent" )%>
 </main>
 <%- include("../partials/footer") %>
