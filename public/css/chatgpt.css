@@ -251,53 +251,120 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
   .burger-button { --size: 52px; }
 }
 
+
+
+
 /* ------------------------------ */
-/* Exemples de mapping EJS        */
+/* Bloc Recette random du jour    */
 /* ------------------------------ */
-/* 
-<div class="recipe-page">
-  <header class="recipe-header">
-    <h1 class="recipe-title">recette de <%= recipe.title %></h1>
-    <button class="burger-button"><span class="burger-steam"></span></button>
-  </header>
+.random-recipe {
+  margin: 28px auto;
+  padding: 18px 22px;
+  max-width: 1100px;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(135deg, #fff6f4, #fff);
+  border: 2px dashed var(--primary);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-  <section class="paper-card">
-    <p class="recipe-description"><%= recipe.description %></p>
-  </section>
+.random-recipe p {
+  font-family: var(--font-round);
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: var(--primary);
+  text-shadow: 1px 1px 0 #fff;
 
-  <section class="section">
-    <h2 class="site-subtitle">Ingrédients</h2>
-    <div class="ingredients">
-      <% ingredientsComplete.forEach(ingredient => { %>
-        <article class="ingredient-card">
-          <div class="ingredient-name"><%= ingredient.name %></div>
-          <div class="ingredient-qty"><%= ingredient.quantity %> <%= ingredient.unit %></div>
-          <div class="ingredient-asset"><img src="<%- ingredient.assetPath %>" alt="<%= ingredient.name %>"></div>
-        </article>
-      <% }); %>
-    </div>
-  </section>
+}
 
-  <section class="section instructions">
-    <% instructions.sort().forEach(instruction => { %>
-      <div class="instruction">
-        <div class="instruction-step">#<%= instruction.step %></div>
-        <p class="instruction-text"><%= instruction.description %></p>
-      </div>
-    <% }); %>
-  </section>
+/* petit effet manga en arrière-plan */
+.random-recipe-btn::after {
+  content: '🍣 🍜 🥟 🍱';
+  font-size: 42px;
+  opacity: 0.58;
+  /* position: absolute; */
+  /* inset: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 12px; */
+  flex-wrap: wrap;
+  pointer-events: none;
+}
 
-  <section class="section comments">
-    <% comments.forEach(comment => { %>
-      <article class="comment-card">
-        <div class="comment-header">
-          <span class="comment-user"><%= comment.username %></span>
-          <time class="comment-date"><%= comment.createdAt %></time>
-        </div>
-        <div class="stars">★★★★★</div>
-        <p class="comment-content"><%= comment.content %></p>
-      </article>
-    <% }); %>
-  </section>
-</div>
-*/
+/* bouton déjà stylé par .btn .btn-primary */
+/* on peut juste renforcer un peu pour le mettre en avant */
+.random-recipe .btn-primary {
+  font-size: 1rem;
+  padding: 12px 18px;
+}
+
+
+
+/* ------------------------------ */
+/* Bloc navigation catégorie      */
+/* ------------------------------ */
+.category-nav {
+  margin: 32px auto;
+  padding: 20px 24px;
+  max-width: 600px;
+  border-radius: var(--radius-2xl);
+  background: linear-gradient(135deg, #fffef9, #fff);
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.category-nav:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.1);
+}
+
+/* le lien devient un bouton fun */
+.category-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-round);
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--secondary);
+  text-decoration: none;
+  background: #fff9e6;
+  border: 2px dashed var(--secondary);
+  border-radius: 999px;
+  padding: 12px 18px;
+  box-shadow: var(--shadow-soft);
+  transition: background .2s ease, transform .12s ease;
+}
+
+.category-nav a:hover {
+  background: #ffe680;
+  transform: scale(1.05);
+}
+
+/* petit emoji décoratif */
+.category-nav::after {
+  content: '👈';
+  font-size: 26px;
+  position: absolute;
+  padding: auto 0 ;
+  right: 18px;
+  opacity: 0.55;
+}
+
+.category-nav::before {
+  content: '👉';
+  font-size: 26px;
+  position: absolute;
+  padding:  auto , 0 ;
+  left: 18px;
+  opacity: 0.55;
+}
+

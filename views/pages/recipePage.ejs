@@ -3,8 +3,12 @@
 <main>
 <%- include("../components/recipeComponent" )%>
 
+<div class="category-nav">
+  <a href="/category/<%= category.id %>">
+    Parcourir les <%= category.name %>
+  </a>
+</div>
 
-<a href="/category/<%=category.id%>" > Parcourir  les  <%=  category.name %> </a> 
 
 </main>
 
