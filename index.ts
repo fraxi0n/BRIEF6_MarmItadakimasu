@@ -29,10 +29,4 @@ app.use(Express.static(path.join(__dirname, "public")))
 // qui contient toutes les routes de l'application
 app.use(router);
 
-// Démarrage du serveur sur le port défini
-// et affichage d'un message dans la console
-// pour indiquer que le serveur est en cours d'exécution
-// et à quelle adresse il est accessible
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+export default app;
