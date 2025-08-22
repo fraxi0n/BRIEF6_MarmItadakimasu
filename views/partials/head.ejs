@@ -20,12 +20,12 @@
     <div id="burger-expend" class="is-hidden">
       <ul class="categories-list">
         <% link.forEach(cat => { %>
-          <li>
-            <strong><%= cat.name %></strong>
+          <li><a href="/category/<%= cat.id %>">
+            <strong><%- cat.name %></strong></a>
             <ul>
               <% cat.recipeLink.forEach(recipe => { %> 
-              <li>
-                <p><%= recipe.title %></p>
+              <li><a href="/recipe/<%= recipe.id %>">
+                <p><%- recipe.title %></p></a>
               </li>
               <% }) %>
           </ul>
@@ -34,12 +34,4 @@
       </ul> 
     </div>
     
-
-    <!-- 
-    to do afficher  logo  - titre - bouton burger
-    menu burger extend par défaut
-    -->
-
-
-
   </header>
