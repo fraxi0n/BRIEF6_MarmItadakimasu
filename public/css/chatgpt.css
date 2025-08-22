@@ -310,7 +310,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 .category-nav {
   margin: 32px auto;
   padding: 20px 24px;
-  max-width: 600px;
+  width: 400px;
   border-radius: var(--radius-2xl);
   background: linear-gradient(135deg, #fffef9, #fff);
   border: 2px solid var(--secondary);
@@ -327,7 +327,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 }
 
 /* le lien devient un bouton fun */
-.category-nav a {
+.category-nav-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -343,28 +343,34 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
   box-shadow: var(--shadow-soft);
   transition: background .2s ease, transform .12s ease;
 }
-
-.category-nav a:hover {
-  background: #ffe680;
-  transform: scale(1.05);
-}
-
-/* petit emoji décoratif */
+/* Emojis décoratifs gauche/droite */
+.category-nav::before,
 .category-nav::after {
-  content: '👈';
   font-size: 26px;
   position: absolute;
-  padding: auto 0 ;
-  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 0.55;
+  transition: transform 0.7s ease;
 }
 
+/* main gauche */
 .category-nav::before {
   content: '👉';
-  font-size: 26px;
-  position: absolute;
-  padding:  auto , 0 ;
-  left: 18px;
-  opacity: 0.55;
+  left: 12px;
 }
 
+/* main droite */
+.category-nav::after {
+  content: '👈';
+  right: 12px;
+}
+
+/* Hover : les mains se rapprochent */
+.category-nav:hover::before {
+  transform: translate(150px, -50%);
+}
+
+.category-nav:hover::after {
+  transform: translate(-150px, -50%);
+}
