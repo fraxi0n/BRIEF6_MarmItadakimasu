@@ -18,17 +18,20 @@
     <div id=burger class="burger scale"></div> 
     
     <div id="burger-expend" class="is-hidden">
-    <!-- <%- link[0].name%> -->
-    <ul class="categories-list">
-      <% link.forEach(cat => { %>
-        <li><strong>
-        <%= cat.name %>
-        </strong>
-      
-      <%}) %>
-    </ul> 
-    
-          
+      <ul class="categories-list">
+        <% link.forEach(cat => { %>
+          <li>
+            <strong><%= cat.name %></strong>
+            <ul>
+              <% cat.recipeLink.forEach(recipe => { %> 
+              <li>
+                <p><%= recipe.title %></p>
+              </li>
+              <% }) %>
+          </ul>
+        </li>
+        <% }) %>
+      </ul> 
     </div>
     
 
