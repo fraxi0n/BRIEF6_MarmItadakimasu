@@ -15,12 +15,25 @@
 
     <div class="main-header">
       <h1 class="site-title" >MarmITADAKIMASU!</h1>
+        <div class="search-bar sb-main" >
+        <label for="search-input-main">Rechercher une recette</label>
+        <input id="search-input-main" 
+          name="search-input-main" 
+          placeholder="poulet rôti">
+      </div>
       <button class="btn btn-primary margin-auto">
         <div id=burger class="burger scale"></div> 
       </button>
     </div>
     <div id="burger-expend" class="is-hidden">
-      <input id="search-input" name="rechercher" placeholder="poulet rôti">
+      <div class="search-bar sb-expend" >
+        <label for="search-input-exp">Rechercher une recette</label>
+        <input 
+          id="search-input-exp" 
+          name="search-input-exp" 
+          placeholder="poulet rôti"
+        >
+      </div>
       <ul class="categories-list">
         <% link.forEach(cat => { %>
           <li><a href="/category/<%= cat.id %>">

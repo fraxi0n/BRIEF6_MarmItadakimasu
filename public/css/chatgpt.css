@@ -245,11 +245,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 /* ------------------------------ */
 /* Responsif                      */
 /* ------------------------------ */
-@media (max-width: 720px) {
-  .recipe-header { flex-direction: column; align-items: stretch; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .burger-button { --size: 52px; }
-}
 
 
 
@@ -472,3 +467,58 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 }
 
 
+/* ------------------------------ */
+/* Barre de recherche             */
+/* ------------------------------ */
+.search-bar {
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-bar label {
+  font-family: var(--font-round);
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+.search-bar input {
+  padding: 10px 14px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-2xl);
+  font-size: 1rem;
+  font-family: var(--font-round);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--secondary);
+}
+
+
+  .sb-expend { 
+    display : none  ;
+    margin: 2px auto 20px auto;
+    gap: 8px;
+
+  }
+
+  .sb-main { 
+    display : flex;
+    margin-top: 13px;
+  }
+
+@media (max-width: 720px) {
+  .recipe-header { flex-direction: column; align-items: stretch; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .burger-button { --size: 52px; }
+  .sb-expend { display : flex  }
+    .sb-main { display : none  }
+
+
+
+}

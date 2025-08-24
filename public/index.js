@@ -7,10 +7,25 @@ const burger = {
   isWatching: false,
   numSprite: 1,
 
-  setOpen() {
-    this.isOpen = !this.isOpen;
+  setOpen(isDefined) {
+    console.log(isDefined)
+    if (isDefined !== undefined)
+    {
+      this.isOpen = isDefined
+    }
+    else
+    {
+      this.isOpen = !this.isOpen;
+    }
+
     if (this.isOpen) {
       burgerExpend.classList.remove("is-hidden");
+
+      if ( searchInput.exp.style.display != "none")
+      {
+        searchInput.exp.focus()
+      }
+
     } else {
       burgerExpend.classList.add("is-hidden");
     }
@@ -56,11 +71,13 @@ burger.dom.addEventListener("click", () => burger.setOpen());
 const recipeLinkArray = Array.from(document.getElementsByClassName("recipe-links"));
 
 const searchInput = {
-  dom: document.getElementById("search-input"),
+
+  main: document.getElementById("search-input-main"),
+  exp: document.getElementById("search-input-exp"),
   value: "",
 };
 
-const linkFilter = (initialInput) => {
+const linkFilter = (initialInput , isMain) => {
   const reworkString = (pValue) => {
     const letterAlias = [
       { letter: "a", alias: ["à", "á", "â", "ã", "ä", "å", "æ"] },
@@ -108,6 +125,16 @@ const linkFilter = (initialInput) => {
 
   const inputValue = reworkString(initialInput.target.value);
 
+  if(isMain)
+  if (inputValue === "")
+  {
+    burger.setOpen(false)
+  }
+  else 
+  {
+    burger.setOpen(true)
+  }
+
   recipeLinkArray.filter((recipeLink) => {
     const innertextRL = recipeLink.innerText.toLowerCase();
 
@@ -115,27 +142,7 @@ const linkFilter = (initialInput) => {
 
       const reworkTitle = reworkString(pTitle);
 
-      console.log(inputValue ,  pTitle) 
-
-      console.log(reworkTitle.includes(inputValue))
-      console.log("") 
-
-
       return reworkTitle.includes(inputValue);
-
-      // todo fonttion de tolerence de l'input
-
-      if (pInput.length >= 3) {
-        const tol = Math.ceil(Math.sqrt(pInput.length) * 1.5);
-
-        //   for (let i = 1 ; i<25 ; i ++)
-
-        //   {
-        //       console.log  ( "    "+ i + "   "  ,Math.ceil(  Math.sqrt(i)*1.5 )  , i^(-1)) // fonction de calcul tolerence d'erreur de saisie
-        //     }
-      } else {
-        reworkTitle.includes(pInput);
-      }
     };
 
     if (tolerentIncludes( innertextRL  ) ) {
@@ -147,4 +154,8 @@ const linkFilter = (initialInput) => {
 
 };
 
-searchInput.dom.addEventListener("input", linkFilter);
+searchInput.main.addEventListener("input", (initialInput)=> linkFilter(initialInput , true));
+
+searchInput.exp.addEventListener("input", linkFilter);
+
+
