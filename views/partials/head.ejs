@@ -20,13 +20,14 @@
       </button>
     </div>
     <div id="burger-expend" class="is-hidden">
+      <input id="search-input" name="rechercher" placeholder="poulet rôti">
       <ul class="categories-list">
         <% link.forEach(cat => { %>
           <li><a href="/category/<%= cat.id %>">
             <strong><%- cat.name %></strong></a>
             <ul>
               <% cat.recipeLink.forEach(recipe => { %> 
-              <li><a href="/recipe/<%= recipe.id %>">
+              <li ><a class="recipe-links" id=<%- "recipe-link"+recipe.id %> href="/recipe/<%= recipe.id %>">
                 <p><%- recipe.title %></p></a>
               </li>
               <% }) %>

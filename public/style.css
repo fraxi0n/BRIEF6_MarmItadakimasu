@@ -85,6 +85,6 @@ ul.categories-list li ul li a:hover {
 
 
 .is-hidden {
-    display: none
+    display: none !important
     ;
 }
