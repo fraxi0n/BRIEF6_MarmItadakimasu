@@ -1,11 +1,11 @@
-.margin-auto{
+.btn-burger-container{
     margin:auto
 }
 
 
 .main-header {
  display : flex;
- justify-content: space-around;
+ justify-content: space-between;
  padding : 10px;   
 }
 
@@ -72,16 +72,6 @@ ul.categories-list li ul li a:hover {
   font-weight: bold;
 }
 
-@media (max-width: 900px) {
-  ul.categories-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 700px) {
-  ul.categories-list {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 .is-hidden {

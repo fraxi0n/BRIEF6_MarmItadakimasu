@@ -306,6 +306,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
   margin: 32px auto;
   padding: 20px 24px;
   width: 400px;
+  max-width: 90%;
   border-radius: var(--radius-2xl);
   background: linear-gradient(135deg, #fffef9, #fff);
   border: 2px solid var(--secondary);
@@ -512,13 +513,3 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
     margin-top: 13px;
   }
 
-@media (max-width: 720px) {
-  .recipe-header { flex-direction: column; align-items: stretch; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .burger-button { --size: 52px; }
-  .sb-expend { display : flex  }
-    .sb-main { display : none  }
-
-
-
-}

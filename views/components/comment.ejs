@@ -1,7 +1,15 @@
 <article class="comment-card paper-card" >
   <div class="comment-header">
     <span class="comment-user"><%= comment.username %></span>
-    <time class="comment-date"><%= comment.createdAt %></time>
+    <time class="comment-date">
+        <%= 'le ' +new Date(comment.createdAt).toLocaleString("fr-FR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }) %>
+    </time>
   </div>
   <div class="riceBowl">
     <% for (let i = 1 ; i<=5 ; i++) {%>
