@@ -91,7 +91,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: 14px; box-sh
 .site-title {
   font-family: var(--font-round);
   font-weight: 900;
-  font-size: clamp(28px, 5vw, 56px);
+  font-size: clamp(24px, 4vw, 56px); 
   margin: auto;
   letter-spacing: 0.5px;
   display: inline-block;

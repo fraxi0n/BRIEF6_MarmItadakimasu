@@ -8,7 +8,9 @@ const burger = {
   numSprite: 1,
 
   setOpen(isDefined) {
-    console.log(isDefined)
+
+    
+
     if (isDefined !== undefined)
     {
       this.isOpen = isDefined
@@ -32,8 +34,11 @@ const burger = {
     !this.isWatching && this.watchTransition();
   },
   setHover(pIsHover) {
-    this.isHover = pIsHover;
-    !this.isWatching && this.watchTransition();
+    if (window.innerWidth >= 1024)
+    {
+      this.isHover = pIsHover;
+      !this.isWatching && this.watchTransition();
+    }
   },
   changeFrame(inc) {
     //+1 || -1
