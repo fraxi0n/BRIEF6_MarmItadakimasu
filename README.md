@@ -1,7 +1,7 @@
 # 🍲 Marm'ITADAKIMASU !
 
 
-[**Marm'ITADAKIMASU** ](https://brief6marmitadakimasu-production.up.railway.app/) est une application web de recettes de cuisine développée selon l’architecture **MVC** (*Model-View-Controller*).  
+[**Marm'ITADAKIMASU** ](https://marmitadakimasu.onrender.com)est une application web de recettes de cuisine développée selon l’architecture **MVC** (*Model-View-Controller*).  
 L’application n’est **pas reliée à une base de données** : les données sont fixes et stockées dans le dossier `data/`.
 
 ---
